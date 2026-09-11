@@ -3,10 +3,14 @@ rejected_entries = 0
 
 while True:
     entry = input("Enter stock quantity (or type 'quit' to finish): ")
+    
     if entry.lower() == 'quit':
         break
     if not entry.isdigit():
-        print("Invalid entry. Please enter a valid number.")
+        if entry.startswith('-') and entry[1:].isdigit():
+            print("Invalid entry. Quantity cannot be negative.")
+        else:
+            print("Invalid entry. Please enter a valid number.")
         rejected_entries += 1
         continue
     quantity = int(entry)
