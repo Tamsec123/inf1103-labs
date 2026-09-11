@@ -15,6 +15,10 @@ while True:
         continue
     quantity = int(entry)
     total_inventory += quantity
+    if total_inventory > 500:
+        print("Warning: Total inventory exceeds 500 units.")
+        break
+
         
 print(f"Total inventory: {total_inventory}")
 print(f"Rejected entries: {rejected_entries}")
